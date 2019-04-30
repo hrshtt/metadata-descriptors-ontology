@@ -61,7 +61,8 @@
                         "healthy-range-upperlimit": 4,
                         "healthy-range-lowerlimit": 1
                     }
-                },
+                }
+            },
             "spec-5": {
                 "name": "Basephils",
                 "presence":null,
@@ -256,6 +257,6 @@
                 "healthy-range-lowerlimit": 50
             }
         }
-    }
+    },
+    "diagnosis/results": null
 }
-} 

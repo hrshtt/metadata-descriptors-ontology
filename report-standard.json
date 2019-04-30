@@ -185,6 +185,10 @@
                     }
                 }
             },
+            "diagnosis/results": {
+                "description": "The end result or diagnosis of the overall report.",
+                "type":"string"
+            },
             "required": ["test-name", "presence"]
         }
     }
