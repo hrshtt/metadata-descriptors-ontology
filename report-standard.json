@@ -45,6 +45,10 @@
                     "description": "A value representing the presence/absence of the test in a document",
                     "type":"boolean"
                 },
+                "desc": {
+                    "description": "Text describing the test.",
+                    "type":"string"
+                },
                 "range":{
                     "description": "Object defining the type and bounds of the range for the test's result.",
                     "type":"object",
@@ -101,13 +105,13 @@
                         }
                     }
                 },
-                "numbered-spec": {
+                "numbered-test-spec": {
                     "description": "A test that is a subset of the main test.",
                     "type": "array",
                     "items": {
                         "type": "object"
                     },
-                    "minItems": 1,
+                    "minItems": 0,
                     "uniqueItems": true,
                     "properties": {
                         "test-name": {
@@ -117,6 +121,10 @@
                         "presence": {
                             "description": "A value representing the presence/absence of the test in a document",
                             "type":"boolean"
+                        },
+                        "desc": {
+                            "description": "Text describing the test.",
+                            "type":"string"
                         },
                         "range":{
                             "description": "Object defining the type and bounds of the range for the test's result.",
