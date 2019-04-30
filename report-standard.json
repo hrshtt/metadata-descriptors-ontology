@@ -1,0 +1,120 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/product.schema.json",
+    "title": "Test-Report",
+    "description": "A Report consisting of results from Medical tests",
+    "type": "object",
+    "properties": {
+        "patient": {
+            "description": "The unique individual the report belongs to",
+            "type": "object",
+            "properties": {
+                "patient-name": {
+                    "description": "Name of the patient",
+                    "type": "string"
+                },
+                "patient-gender": {
+                    "description": "Gender of the patient",
+                    "type": "string"
+                },
+                "patient-age": {
+                    "description": "Age of the patient",
+                    "type": "integer"
+                }
+            },
+            "required": ["patient-name", "patient-gender", "patient-age"]
+        },
+        "number of tests": {
+            "description": "Indicates the number of tests in the report",
+            "type":"integer"
+        },
+        "test": {
+            "description": "A specific test that has been designed and defined by medical organizations, Also has a number associated for cronologity",
+            "type": "array",
+            "items": {
+                "type": "object"
+            },
+            "minItems": 1,
+            "uniqueItems": true,
+            "properties": {
+                "test-name": {
+                    "description": "Name of the Test",
+                    "type":"string"
+                },
+                "presence": {
+                    "description": "A value representing the presence/absence of the test in a document",
+                    "type":"boolean"
+                },
+                "range":{
+                    "description": "Object defining the type and bounds of the range for the test's result.",
+                    "type":"object",
+                    "properties": {
+                        "range-type": {
+                            "description": "A value representing the type of the result of the test.",
+                            "type":"string"
+                        },
+                        "range-unit":{
+                            "description": "A value representing the unit of the range for the result of the test.",
+                            "type":"string"
+                        },
+                        "mens-healthy-range":{
+                            "description": "A value represtenting mens healthy range for test result.",
+                            "type":"object",
+                            "properties": {
+                                "healthy-range-upperlimit": {
+                                    "description": "A value for men, representing the upperlimit for a healty result of the test.",
+                                    "type": "number"
+                                },
+                                "healthy-range-lowerlimit": {
+                                    "description": "A value for men, representing the lowerlimit for a healty result of the test.",
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "womens-healthy-range":{
+                            "description": "A value represtenting womens healthy range for test result.",
+                            "type":"object",
+                            "properties": {
+                                "healthy-range-upperlimit": {
+                                    "description": "A value for women representing the upperlimit for a healty result of the test.",
+                                    "type": "number"
+                                },
+                                "healthy-range-lowerlimit": {
+                                    "description": "A value for women representing the lowerlimit for a healty result of the test.",
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "generic-healthy-range":{
+                            "description": "A value represtenting generic healthy range for the test result.",
+                            "type":"object",
+                            "properties": {
+                                "healthy-range-upperlimit": {
+                                    "description": "A generic value for representing the upperlimit for a healty result of the test.",
+                                    "type": "number"
+                                },
+                                "healthy-range-lowerlimit": {
+                                    "description": "A generic value for representing the lowerlimit for a healty result of the test.",
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                },
+                "numbered-spec": {
+                    "description": "A test that is a subset of the main test.",
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "properties": {
+
+                    }
+                }
+            },
+            "required": ["test-name", "presence"]
+        }
+    }
+}
